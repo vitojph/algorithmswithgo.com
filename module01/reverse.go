@@ -1,7 +1,5 @@
 package module01
 
-import "strings"
-
 // Reverse will return the provided word in reverse
 // order. Eg:
 //
@@ -17,10 +15,18 @@ import "strings"
 	return strings.Join(reverse, "")
 }*/
 
-func Reverse(word string) string {
+/*func Reverse(word string) string {
 	var reverse strings.Builder
 	for i := len(word) - 1; i >= 0; i-- {
 		reverse.WriteByte(word[i])
 	}
 	return reverse.String()
+}*/
+
+func Reverse(word string) string {
+	var reverse string
+	for _, r := range word {
+		reverse = string(r) + reverse
+	}
+	return reverse
 }
