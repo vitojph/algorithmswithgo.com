@@ -1,7 +1,5 @@
 package module01
 
-import "strconv"
-
 // DecToBase will return a string representing
 // the provided decimal number in the provided base.
 // This is limited to bases 2-16 for simplicity.
@@ -11,7 +9,7 @@ import "strconv"
 //   DecToBase(14, 16) => "E"
 //   DecToBase(14, 2) => "1110"
 //
-func DecToBase(dec, base int) string {
+/*func DecToBase(dec, base int) string {
 	var output string
 	var remainder int
 	for dec > 0 {
@@ -34,6 +32,18 @@ func DecToBase(dec, base int) string {
 				output = "F" + output
 			}
 		}
+			dec = dec / base
+	}
+	return output
+}
+*/
+func DecToBase(dec, base int) string {
+	var output string
+	var remainder int
+	const charset = "0123456789ABCDEF"
+	for dec > 0 {
+		remainder = dec % base
+		output = string(charset[remainder]) + output
 		dec = dec / base
 	}
 	return output
