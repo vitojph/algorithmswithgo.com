@@ -29,5 +29,15 @@ func Fibonacci(n int) int {
 	if n == 0 || n == 1 {
 		return n
 	}
-	return Fibonacci(n-2) + Fibonacci(n-1)
+	//return Fibonacci(n-2) + Fibonacci(n-1)
+
+	nMinus2 := 0
+	nMinus1 := 1
+	var currentVal int
+	for i := 2; i <= n; i++ {
+		currentVal = nMinus2 + nMinus1
+		nMinus2 = nMinus1
+		nMinus1 = currentVal
+	}
+	return currentVal
 }
